@@ -1,76 +1,97 @@
 <!DOCTYPE html>
-<!-- ===============================
- Boost Your Social Media – UI Pack
- Includes:
- 1) Login & Register Page
- 2) Dashboard UI
- 3) AdSense-ready placements
- 4) Dark Mode + Animations
- =============================== -->
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Boost Your Social Media – UI</title>
+<title>Boost Your Social Media – Dashboard</title>
+
 <style>
 :root{
-  --bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--primary:#4f46e5;--secondary:#9333ea;
+  --bg:#f5f7fb;--card:#ffffff;--text:#1f2937;
+  --primary:#4f46e5;--secondary:#9333ea;
 }
 body.dark{
-  --bg:#0f172a;--card:#020617;--text:#e5e7eb;--primary:#6366f1;--secondary:#a855f7;
+  --bg:#0f172a;--card:#020617;--text:#e5e7eb;
+  --primary:#6366f1;--secondary:#a855f7;
 }
 *{box-sizing:border-box}
-body{margin:0;font-family:Segoe UI,Tahoma,sans-serif;background:var(--bg);color:var(--text);transition:.3s}
+body{
+  margin:0;font-family:Segoe UI,Tahoma,sans-serif;
+  background:var(--bg);color:var(--text);transition:.3s
+}
 .container{max-width:1100px;margin:auto;padding:30px}
-.card{background:var(--card);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.08);padding:30px;animation:fadeUp .6s ease}
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
-.btn{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;padding:12px 28px;border-radius:30px;border:none;cursor:pointer;font-weight:600}
-.btn.outline{background:none;color:var(--primary);border:2px solid var(--primary)}
-input{width:100%;padding:12px;border-radius:10px;border:1px solid #c7cbe0;margin:8px 0}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:20px}
+.card{
+  background:var(--card);border-radius:16px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  padding:30px;animation:fadeUp .6s ease
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:none}
+}
+.btn{
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:#fff;padding:12px 28px;border-radius:30px;
+  border:none;cursor:pointer;font-weight:600;
+  text-decoration:none;display:inline-block
+}
+.btn.outline{
+  background:none;color:var(--primary);
+  border:2px solid var(--primary)
+}
+input{
+  width:100%;padding:12px;border-radius:10px;
+  border:1px solid #c7cbe0;margin:8px 0
+}
+.nav{
+  display:flex;justify-content:space-between;
+  align-items:center;padding:20px
+}
 .toggle{cursor:pointer}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.ad{background:#e5e7eb;border-radius:12px;padding:25px;text-align:center;color:#374151;font-size:14px}
-.badge{background:#eef2ff;color:#4338ca;padding:6px 14px;border-radius:20px;font-size:13px}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px
+}
+.ad{
+  background:#e5e7eb;border-radius:12px;
+  padding:25px;text-align:center;
+  color:#374151;font-size:14px
+}
+.badge{
+  background:#eef2ff;color:#4338ca;
+  padding:6px 14px;border-radius:20px;
+  font-size:13px
+}
 </style>
 </head>
+
 <body>
 
-<!-- ===== TOP BAR ===== -->
+<!-- TOP BAR -->
 <div class="nav">
   <strong>Boost Your Social Media</strong>
-  <div class="toggle" onclick="document.body.classList.toggle('dark')">🌙 Dark Mode</div>
-</div>
-
-<!-- ================= LOGIN / REGISTER PAGE ================= -->
-<div class="container">
-  <div class="card">
-    <h2>Login / Register</h2>
-    <p>Create your free account and start promoting your social media.</p>
-
-    <input type="email" placeholder="Email address" />
-    <input type="password" placeholder="Password" />
-
-    <label>
-      <input type="checkbox" /> I agree to the Terms & Conditions (Follow-back is mandatory)
-    </label><br><br>
-
-    <button class="btn">Login</button>
-    <button class="btn outline">Register</button>
+  <div class="toggle" onclick="document.body.classList.toggle('dark')">
+    🌙 Dark Mode
   </div>
 </div>
 
-<!-- ================= DASHBOARD ================= -->
+<!-- DASHBOARD -->
 <div class="container">
   <h2>Dashboard</h2>
-<a href="create-campaign.html" class="btn" style="margin-bottom:20px;display:inline-block">
-Create Campaign
-</a>  
- <a href="admin.html" class="btn" id="adminBtn" style="display:none">
-Admin Panel
-</a>
-  <!-- AdSense Placement (Top) -->
-  <div class="ad">Google AdSense – Top Banner</div>
+
+  <a href="create-campaign.html" class="btn" style="margin-bottom:15px">
+    Create Campaign
+  </a>
+
+  <!-- ADMIN BUTTON (Hidden by default) -->
+  <a href="admin.html" class="btn" id="adminBtn" style="display:none">
+    Admin Panel
+  </a>
+
+  <div class="ad" style="margin-top:20px">
+    Google AdSense – Top Banner
+  </div>
 
   <div class="grid" style="margin-top:20px">
     <div class="card">
@@ -95,14 +116,17 @@ Admin Panel
     </div>
   </div>
 
-  <!-- AdSense Placement (Middle) -->
-  <div class="ad" style="margin-top:30px">Google AdSense – In Content</div>
+  <div class="ad" style="margin-top:30px">
+    Google AdSense – In Content
+  </div>
 </div>
 
-<!-- ================= FOOTER ================= -->
+<!-- FOOTER -->
 <div style="text-align:center;padding:30px;font-size:14px;color:#6b7280">
 © 2025 Boost Your Social Media Worldwide | English | සිංහල
 </div>
+
+<!-- FIREBASE ADMIN CHECK -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
   import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
@@ -120,12 +144,17 @@ Admin Panel
 
   onAuthStateChanged(auth, (user) => {
     if (!user) {
+      // User not logged in
       window.location.href = "login.html";
       return;
     }
 
+    // Show admin button only for admin email
     if (user.email === ADMIN_EMAIL) {
-      document.getElementById("adminBtn").style.display = "inline-block";
+      const adminBtn = document.getElementById("adminBtn");
+      if (adminBtn) {
+        adminBtn.style.display = "inline-block";
+      }
     }
   });
 </script>
