@@ -35,14 +35,6 @@ body{
   border:none;cursor:pointer;font-weight:600;
   text-decoration:none;display:inline-block
 }
-.btn.outline{
-  background:none;color:var(--primary);
-  border:2px solid var(--primary)
-}
-input{
-  width:100%;padding:12px;border-radius:10px;
-  border:1px solid #c7cbe0;margin:8px 0
-}
 .nav{
   display:flex;justify-content:space-between;
   align-items:center;padding:20px
@@ -80,15 +72,19 @@ input{
 <div class="container">
   <h2>Dashboard</h2>
 
-  <a href="create-campaign.html" class="btn" style="margin-bottom:15px">
+  <!-- CREATE CAMPAIGN (Hidden until login) -->
+  <a href="create-campaign.html"
+     id="createBtn"
+     class="btn"
+     style="display:none;margin-bottom:15px">
     Create Campaign
   </a>
 
   <!-- ADMIN BUTTON (Hidden by default) -->
- <a href="admin-dashboard.html" class="btn" id="adminBtn" style="display:none">
-Admin Panel
-</a>
-
+  <a href="admin-dashboard.html"
+     id="adminBtn"
+     class="btn"
+     style="display:none;margin-left:10px">
     Admin Panel
   </a>
 
@@ -129,7 +125,7 @@ Admin Panel
 © 2025 Boost Your Social Media Worldwide | English | සිංහල
 </div>
 
-<!-- FIREBASE ADMIN CHECK -->
+<!-- FIREBASE AUTH + ADMIN CHECK -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
   import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
@@ -145,19 +141,21 @@ Admin Panel
 
   const ADMIN_EMAIL = "admin@boostsocial.com";
 
+  const createBtn = document.getElementById("createBtn");
+  const adminBtn  = document.getElementById("adminBtn");
+
   onAuthStateChanged(auth, (user) => {
     if (!user) {
-      // User not logged in
       window.location.href = "login.html";
       return;
     }
 
-    // Show admin button only for admin email
+    // logged user
+    createBtn.style.display = "inline-block";
+
+    // admin only
     if (user.email === ADMIN_EMAIL) {
-      const adminBtn = document.getElementById("adminBtn");
-      if (adminBtn) {
-        adminBtn.style.display = "inline-block";
-      }
+      adminBtn.style.display = "inline-block";
     }
   });
 </script>
