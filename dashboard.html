@@ -16,14 +16,19 @@ body.dark{
 }
 *{box-sizing:border-box}
 body{
-  margin:0;font-family:Segoe UI,Tahoma,sans-serif;
-  background:var(--bg);color:var(--text);transition:.3s
+  margin:0;
+  font-family:Segoe UI,Tahoma,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  transition:.3s
 }
 .container{max-width:1100px;margin:auto;padding:30px}
 .card{
-  background:var(--card);border-radius:16px;
+  background:var(--card);
+  border-radius:16px;
   box-shadow:0 10px 30px rgba(0,0,0,.08);
-  padding:30px;animation:fadeUp .6s ease
+  padding:30px;
+  animation:fadeUp .6s ease
 }
 @keyframes fadeUp{
   from{opacity:0;transform:translateY(20px)}
@@ -31,13 +36,20 @@ body{
 }
 .btn{
   background:linear-gradient(135deg,var(--primary),var(--secondary));
-  color:#fff;padding:12px 28px;border-radius:30px;
-  border:none;cursor:pointer;font-weight:600;
-  text-decoration:none;display:inline-block
+  color:#fff;
+  padding:12px 28px;
+  border-radius:30px;
+  border:none;
+  cursor:pointer;
+  font-weight:600;
+  text-decoration:none;
+  display:inline-block
 }
 .nav{
-  display:flex;justify-content:space-between;
-  align-items:center;padding:20px
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px
 }
 .toggle{cursor:pointer}
 .grid{
@@ -46,13 +58,18 @@ body{
   gap:20px
 }
 .ad{
-  background:#e5e7eb;border-radius:12px;
-  padding:25px;text-align:center;
-  color:#374151;font-size:14px
+  background:#e5e7eb;
+  border-radius:12px;
+  padding:25px;
+  text-align:center;
+  color:#374151;
+  font-size:14px
 }
 .badge{
-  background:#eef2ff;color:#4338ca;
-  padding:6px 14px;border-radius:20px;
+  background:#eef2ff;
+  color:#4338ca;
+  padding:6px 14px;
+  border-radius:20px;
   font-size:13px
 }
 </style>
@@ -72,7 +89,7 @@ body{
 <div class="container">
   <h2>Dashboard</h2>
 
-  <!-- CREATE CAMPAIGN (Hidden until login) -->
+  <!-- CREATE CAMPAIGN (LOGIN REQUIRED) -->
   <a href="create-campaign.html"
      id="createBtn"
      class="btn"
@@ -80,7 +97,7 @@ body{
     Create Campaign
   </a>
 
-  <!-- ADMIN BUTTON (Hidden by default) -->
+  <!-- ADMIN ONLY -->
   <a href="admin-dashboard.html"
      id="adminBtn"
      class="btn"
@@ -150,10 +167,10 @@ body{
       return;
     }
 
-    // logged user
+    // Logged-in user
     createBtn.style.display = "inline-block";
 
-    // admin only
+    // Admin only
     if (user.email === ADMIN_EMAIL) {
       adminBtn.style.display = "inline-block";
     }
